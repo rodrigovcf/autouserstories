@@ -17,8 +17,13 @@ public class Lab45Controller {
     private Lab45Service lab45Service;
 
     @PostMapping("/generate")
-    public ResponseEntity<String> generateUserStory(@RequestBody DemandRequest demand){
-        String userStory = lab45Service.generateUserStory(demand);
-        return ResponseEntity.ok(userStory);
+    public ResponseEntity<String> generateLab45Request(@RequestBody DemandRequest demand){
+        //Chamando o serviço com os dados da requisição encapsulados no DemandRequest
+        String response = lab45Service.callLab45Api(
+                demand.getUserVision(),
+                demand.getBusinessRule(),
+                demand.getAcceptanceCriteria()
+        );
+        return ResponseEntity.ok(response);
     }
 }
