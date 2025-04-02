@@ -26,4 +26,10 @@ public class Lab45Controller {
         );
         return ResponseEntity.ok(response);
     }
+
+    @PostMapping("/generate-user-story")
+    public ResponseEntity<String> generateUserStory(@RequestBody DemandRequest demand){
+        String userStory = lab45Service.generateUserStory(demand);
+        return ResponseEntity.ok(userStory);
+    }
 }

@@ -13,6 +13,9 @@ public class Lab45Request {
     @JsonProperty("skill_parameters")
     private SkillParameters skillParameters;
 
+    @JsonProperty("stream_response")
+    private boolean streamResponse;
+
     @Data
     public static class Message{
         private String content;
