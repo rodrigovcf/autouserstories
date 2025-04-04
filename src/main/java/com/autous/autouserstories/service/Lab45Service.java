@@ -23,6 +23,7 @@ public class Lab45Service {
                 .build();
     }
 
+
     public String generateUserStory(DemandRequest demand) {
         Lab45Request.Message message = new Lab45Request.Message();
         message.setContent(
