@@ -31,3 +31,18 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Arquivos de configuração sensíveis
+.env
+*.env
+config/*.properties
+config/*.yml
+config/*.yaml
+
+# Tokens e credenciais
+*.key
+*.pem
+*.crt
+*.p12
+*.jks
+secrets/
