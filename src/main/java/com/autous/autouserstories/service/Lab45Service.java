@@ -29,7 +29,11 @@ public class Lab45Service {
         }
         this.webClient = WebClient.builder()
                 .baseUrl("https://api.lab45.ai/v1.1")
+<<<<<<< HEAD
                 .defaultHeader("Authorization", apiToken)
+=======
+                .defaultHeader("Authorization", "Bearer Seu token aqui")
+>>>>>>> 11f7919ea0414ad53402e816753eb15bdcdd6000
                 .build();
     }
 
