@@ -14,28 +14,25 @@ public class Lab45Controller {
     @Autowired
     private Lab45Service lab45Service;
 
-//    @CrossOrigin(origins = "http://localhost:3000") // Permite apenas o frontend
-//    @PostMapping("/generate")
-//    public ResponseEntity<String> generateLab45Request(@RequestBody StoryRequest demand) {
-//        String response = lab45Service.callLab45Api(
-//                demand.getUserVision(),
-//                demand.getBusinessRule(),
-//                demand.getAcceptanceCriteria()
-//        );
-//        return ResponseEntity.ok(response);
-//    }
-
     @CrossOrigin(origins = "http://localhost:3000") // Permite apenas o frontend
     @PostMapping("/generate-user-story")
-    public ResponseEntity<String> generateUserStory(@RequestBody StoryRequest demand) {
-        String userStory = lab45Service.generateUserStory(demand);
+    public ResponseEntity<StoryRequest> generateUserStory(@RequestBody StoryRequest demand) {
+        if (demand == null || demand.getUserStoryName() == null || demand.getUserStoryDescription() == null) {
+            throw new IllegalArgumentException("Payload inválido ou estrutura do JSON incorreta.");
+        }
+        StoryRequest userStory = lab45Service.generateUserStory(demand);
+        System.out.println("Payload recebido: " + demand);
         return ResponseEntity.ok(userStory);
     }
 
     @CrossOrigin(origins = "http://localhost:3000") // Permite apenas o frontend
     @PostMapping("/generate-epic")
     public ResponseEntity<EpicRequest> generateEpic(@RequestBody EpicRequest demand) {
+        if (demand == null || demand.getEpicName() == null || demand.getDescription() == null) {
+            throw new IllegalArgumentException("Payload inválido ou estrutura do JSON incorreta.");
+        }
         EpicRequest epic = lab45Service.generateEpic(demand);
+        System.out.println("Payload recebido: " + demand);
         return ResponseEntity.ok(epic);
     }
 

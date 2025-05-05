@@ -32,7 +32,7 @@ public class Lab45Request {
         private String retrievalChain;
         @JsonProperty("max_output_tokens")
         private int maxOutputTokens;
-        private int temperature;
+        private double temperature;
         @JsonProperty("top_p")
         private int topP;
         @JsonProperty("frequency_penalty")

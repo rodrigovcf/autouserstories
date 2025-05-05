@@ -2,68 +2,73 @@ package com.autous.autouserstories.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonRootName(value = "epic")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class EpicRequest {
-    @JsonProperty("Nome do Épico")
+    @JsonProperty("nome_do_epico")
     private String epicName;
 
-    @JsonProperty("Tipo do Épico")
+    @JsonProperty("tipo_do_epico")
     private String epicType;
 
-    @JsonProperty("Descrição")
+    @JsonProperty("descricao")
     private String description;
 
-    @JsonProperty("Resultado Esperado")
+    @JsonProperty("resultado_esperado")
     private String expectedResult;
 
-    @JsonProperty("Objetivo")
+    @JsonProperty("objetivo")
     private String objective;
 
-    @JsonProperty("Tamanho (PFS)")
+    @JsonProperty("tamanho_pfs")
     private String sizePFS;
 
-    @JsonProperty("Hipótese")
+    @JsonProperty("hipotese")
     private Hypothesis hypothesis;
 
-    @JsonProperty("Indicador")
+    @JsonProperty("indicador")
     private String indicator;
 
-    @JsonProperty("Validação Técnica")
+    @JsonProperty("validacao_tecnica")
     private String technicalValidation;
 
-    @JsonProperty("Riscos")
+    @JsonProperty("riscos")
     private String risks;
 
-    @JsonProperty("Quantidade de Histórias do Épico")
+    @JsonProperty("quantidade_de_historias_do_epico")
     private int storyCount;
 
-    @JsonProperty("RN - Exibir como tópicos")
+    @JsonProperty("lista_de_historias")
     private List<Functionality> functionalities;
-
 
     @Data
     public static class Hypothesis {
-        @JsonProperty("Se")
+        @JsonProperty("se")
         private String condition;
 
-        @JsonProperty("Acreditamos que")
+        @JsonProperty("acreditamos_que")
         private String belief;
 
-        @JsonProperty("Estaremos")
+        @JsonProperty("estaremos")
         private String outcome;
     }
 
     @Data
     public static class Functionality {
-        @JsonProperty("Nome")
+        @JsonProperty("nome")
         private String name;
 
-        @JsonProperty("Descrição")
+        @JsonProperty("descricao")
         private String description;
     }
 }
