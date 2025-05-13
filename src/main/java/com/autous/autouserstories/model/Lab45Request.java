@@ -20,7 +20,6 @@ public class Lab45Request {
     public static class Message{
         private String content;
         private String role;
-
     }
 
     @Data
@@ -34,16 +33,17 @@ public class Lab45Request {
         private int maxOutputTokens;
         private double temperature;
         @JsonProperty("top_p")
-        private int topP;
+        private double topP;
         @JsonProperty("frequency_penalty")
-        private int frequencyPenalty;
+        private double frequencyPenalty;
         @JsonProperty("presence_penalty")
-        private int presencePenalty;
+        private double presencePenalty;
         @JsonProperty("emb_type")
         private String embType;
         @JsonProperty("top_k")
-        private int topK;
+        private double topK;
         @JsonProperty("return_sources")
         private boolean returnSources;
+
     }
 }
